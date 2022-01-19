@@ -4,6 +4,7 @@ from helpers.regex_helper import RegexHelper
 from model.user import User
 
 class FileHelper:
+    regexHelper = RegexHelper()
     
     def scrapJsonFile(self, path):
         userList = list()
@@ -17,10 +18,10 @@ class FileHelper:
                     user.email = data["email"]
                     user.username = data["username"]
                     user.name_surname = data["profile"]["name"]
-                    user.country = data["profile"]["address"].split()[-1]
-                    user.birth_day = data["profile"]["dob"][:8]
-                    user.birth_month = data["profile"]["dob"][5:7]
-                    user.birth_year = data["profile"]["dob"][0:4]
+                    user.country = data["profile"]["address"].split()[-1] #TODO: make service call
+                    user.birth_day = self.getBirthDay(data["profile"]["dob"])
+                    user.birth_month = self.getBirthMonth(data["profile"]["dob"])
+                    user.birth_year = self.getBirthYear(data["profile"]["dob"])
                     user.usernamelk = self.isUsernamelk(user.username, user.name_surname)
 
                     userList.append(user)
@@ -31,7 +32,17 @@ class FileHelper:
 
 
     def getBirthDay(self,date):
-        pass
+        day = self.regexHelper.parseBirthDay(date)
+        return day
+    
+    def getBirthMonth(self,date):
+        month = self.regexHelper.parseBirthMonth(date)
+        return month
+
+    def getBirthYear(self,date):
+        year = self.regexHelper.parseBirthYear(date)
+        return year
+
     def getCountry(self, latitude, longitude):
         #TODO: will be added service
         pass
@@ -41,11 +52,9 @@ class FileHelper:
         pass
         
 
-
     def isUsernamelk(self, username, name_surname):
-        regexHelper = RegexHelper()
         name_surname = name_surname.lower().replace(" ","")
-        name = regexHelper.parseUsername(username)
+        name = self.regexHelper.parseUsername(username)
 
         return "1" if name == name_surname[:len(name)] else "0"
 
