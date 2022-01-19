@@ -9,3 +9,4 @@ class CustomMessages:
 
     #Success messages
     DATA_INSERT_SUCCES = "Data inserted successfully!"
+    DATABASE_CREATE_SUCCES = "Database created successfully!"

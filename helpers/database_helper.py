@@ -45,6 +45,9 @@ class DatabaseHelper:
             cursor.execute(create_table_script)
             connection.commit()
             connection.close()
+
+            print(CustomMessages.DATABASE_CREATE_SUCCES)
+            
         except:
             print(CustomMessages.CREATE_TABLE_ERROR)
         finally:
