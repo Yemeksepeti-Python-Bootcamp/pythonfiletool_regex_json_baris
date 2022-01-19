@@ -19,9 +19,10 @@ class DatabaseHelper:
         connection = None
         try:
             connection = sqlite3.connect(self.db)
+            return connection
         except:
             print(CustomMessages.CONNECTION_ERROR)
-        return connection
+        
 
     def createTable(self):
         try:

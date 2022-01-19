@@ -44,7 +44,7 @@ class FileHelper:
         return year
 
     def getCountry(self, latitude, longitude):
-        #TODO: will be added service
+        #TODO: will be added API service
         pass
 
 

@@ -4,14 +4,11 @@ from helpers.file_helper import FileHelper
 from helpers.database_helper import DatabaseHelper
 
 def main(file = None, db = None):
-    
     if (file is not None) and (db is not None):
         jsonFileTool = FileHelper()
-
-        userInfoList = jsonFileTool.scrapJsonFile(file)
-
         databaseHelper = DatabaseHelper(db)
 
+        userInfoList = jsonFileTool.scrapJsonFile(file)
         databaseHelper.createTable()
 
         for user_info in userInfoList:
@@ -26,7 +23,7 @@ if __name__ == "__main__":
     db_name = "dataregex.db"
 
     main(file_name,db_name)
-    
+
     # jsonFileTool = FileHelper()
     # result = jsonFileTool.isUsernamelk("baris89", "Baris Ayten")
     # print(result)

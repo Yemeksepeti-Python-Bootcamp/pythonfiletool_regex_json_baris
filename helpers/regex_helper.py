@@ -1,7 +1,5 @@
 import re
 
-from numpy import mat
-
 class RegexHelper:
     
     def parseUsername(self, username):
