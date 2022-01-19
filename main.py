@@ -1,0 +1,28 @@
+from constants.messages import CustomMessages
+from model.user import User
+from helpers.file_helper import FileHelper
+from helpers.database_helper import DatabaseHelper
+
+def main(file = None, db = None):
+    
+    if (file is not None) and (db is not None):
+        jsonFileTool = FileHelper()
+
+        userInfoList = jsonFileTool.scrapJsonFile(file)
+
+        databaseHelper = DatabaseHelper(db)
+
+        databaseHelper.createTable()
+
+        for user_info in userInfoList:
+            databaseHelper.insertData(user_info)
+    else:
+        print(CustomMessages.PARAMETER_ERROR)
+
+
+
+if __name__ == "__main__":
+    file_name = "dataregex.json"
+    db_name = "dataregex.db"
+
+    main(file_name,db_name)
