@@ -1,6 +1,6 @@
 import json
 from constants.messages import CustomMessages
-from model.User import User
+from model.user import User
 
 class FileHelper:
     
