@@ -1,5 +1,6 @@
 import json
 from constants.messages import CustomMessages
+from helpers.regex_helper import RegexHelper
 from model.user import User
 
 class FileHelper:
@@ -20,6 +21,7 @@ class FileHelper:
                     user.birth_day = data["profile"]["dob"][:8]
                     user.birth_month = data["profile"]["dob"][5:7]
                     user.birth_year = data["profile"]["dob"][0:4]
+                    user.usernamelk = self.isUsernamelk(user.username, user.name_surname)
 
                     userList.append(user)
         except:
@@ -27,16 +29,26 @@ class FileHelper:
 
         return userList
 
+
+    def getBirthDay(self,date):
+        pass
     def getCountry(self, latitude, longitude):
         #TODO: will be added service
         pass
-    def isEmailuserlk(self, email, username):
-        #TODO: controls will be added
+
+
+    def isEmailuserlk(self, name_surname, username):
         pass
+        
+
 
     def isUsernamelk(self, username, name_surname):
-        #TODO: controls will be added
-        pass
+        regexHelper = RegexHelper()
+        name_surname = name_surname.lower().replace(" ","")
+        name = regexHelper.parseUsername(username)
+
+        return "1" if name == name_surname[:len(name)] else "0"
+
 
         
        

@@ -26,3 +26,7 @@ if __name__ == "__main__":
     db_name = "dataregex.db"
 
     main(file_name,db_name)
+    
+    # jsonFileTool = FileHelper()
+    # result = jsonFileTool.isUsernamelk("baris89", "Baris Ayten")
+    # print(result)
