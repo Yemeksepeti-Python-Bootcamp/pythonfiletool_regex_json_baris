@@ -2,6 +2,7 @@ from multiprocessing import connection
 import sqlite3
 from constants.messages import CustomMessages
 from model.user import User
+from datetime import date
 
 class DatabaseHelper:
     def __init__(self, db):
@@ -9,7 +10,9 @@ class DatabaseHelper:
 
     def getTableName(self):
         """Returns the table name"""
-        table_name = "data_20220111"
+        current_date = str(date.today().year)+str(date.today().month)+str(date.today().day)
+        table_name = "data_"+current_date
+        
         return table_name
 
     def createConnection(self):

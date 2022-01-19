@@ -27,6 +27,9 @@ class FileHelper:
 
         return userList
 
+    def getCountry(self, latitude, longitude):
+        #TODO: will be added service
+        pass
     def isEmailuserlk(self, email, username):
         #TODO: controls will be added
         pass
