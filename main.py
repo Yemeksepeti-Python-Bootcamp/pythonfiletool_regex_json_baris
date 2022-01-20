@@ -18,9 +18,9 @@ def main(file = None, db = None):
         print(CustomMessages.PARAMETER_ERROR)
 
 
-
 if __name__ == "__main__":
-    file_name = "dataregex.json"
-    db_name = "dataregex.db"
 
-    main(file_name,db_name)
+    file = "dataregex.json"
+    db = "dataregex.db"
+
+    main(file,db)

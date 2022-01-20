@@ -10,6 +10,7 @@ class LocationHelper:
             country = str(locname.address).split()[-1]
             
             return country
+            
         except:
             print(CustomMessages.LOCATION_ERROR)
 

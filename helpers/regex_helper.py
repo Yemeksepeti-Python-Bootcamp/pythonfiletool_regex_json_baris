@@ -28,22 +28,3 @@ class RegexHelper:
         birthDate["day"] = match.group(3)
 
         return birthDate
-
-    
-    # def parseBirthYear(self, date):
-    #     pattern = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})")
-    #     match = pattern.search(date)
-
-    #     return match.group(1)
-    
-    # def parseBirthMonth(self, date):
-    #     pattern = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})")
-    #     match = pattern.search(date)
-
-    #     return match.group(2)
-    
-    # def parseBirthDay(self, date):
-    #     pattern = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})")
-    #     match = pattern.search(date)
-
-    #     return match.group(3)

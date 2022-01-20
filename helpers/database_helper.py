@@ -29,21 +29,18 @@ class DatabaseHelper:
             cursor = connection.cursor()
             
             create_table_script = f'''CREATE TABLE IF NOT EXISTS {self.getTableName()}
-              (username TEXT, 
-              name_surname TEXT, 
-              email TEXT,
-              emailuserlk TEXT,
-              usernamelk TEXT,
-              birth_year TEXT,
-              birth_month TEXT,
-              birth_day TEXT,
-              country TEXT,
-              active_passive TEXT
+              (username TEXT, name_surname TEXT, 
+              email TEXT, emailuserlk TEXT,
+              usernamelk TEXT, birth_year TEXT,
+              birth_month TEXT, birth_day TEXT,
+              country TEXT, active_passive TEXT
               )'''
 
             cursor.execute(create_table_script)
             connection.commit()
+
             print(CustomMessages.DATABASE_CREATE_SUCCES)
+            
         except:
             print(CustomMessages.DB_CREATE_SUCCES)
         finally:

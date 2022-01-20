@@ -41,10 +41,6 @@ class FileHelper:
         birthDate = self.regexHelper.parseBirthDate(date)
         return birthDate
 
-    def getCountry(self, latitude, longitude):
-        country = self.locationHelper.getLocation(latitude, longitude)
-        return country
-
     def isEmailUserlk(self, email, username):
         username = self.regexHelper.parseUsername(username)
         email = self.regexHelper.parseEmail(email)
@@ -52,10 +48,14 @@ class FileHelper:
         return "1" if username in email else "0"
         
     def isUserNamelk(self, username, name_surname):
-        name_surname = name_surname.lower().replace(" ","")
+        name_surname = name_surname.lower().split()
         name = self.regexHelper.parseUsername(username)
 
-        return "1" if name == name_surname[:len(name)] else "0"
+        return "1" if name in name_surname else "0"
+
+    def getCountry(self, latitude, longitude):
+        country = self.locationHelper.getLocation(latitude, longitude)
+        return country
 
 
         
