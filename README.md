@@ -20,9 +20,6 @@ In short, the homework is about **parsing the json** file containing user inform
 - `geocoder` for getting location
 - `date` for getting current date time
 
-<br/>
-<br/>
-
 ## **Folder Structure**
 
   
@@ -43,8 +40,6 @@ In short, the homework is about **parsing the json** file containing user inform
     ├── main.py                         # Main 
     ├── README.md                       # Readme
 
-<br/>
-<br/>
 
 ## **UML Class Diagram**
 ![UML](https://i.hizliresim.com/ctxhqvo.png)
@@ -58,12 +53,9 @@ In short, the homework is about **parsing the json** file containing user inform
 
 
 <br/>
-<br/>
-<br/>
 
 
 # **Homework Description**
-## pythonfiletool_regex_json
 
 Bu repository patika.dev 153. Yemeksepeti Python Web Development Bootcamp için ödev detaylarını paylaşmak üzere tema olarak hazırlanmıştır. 
 
