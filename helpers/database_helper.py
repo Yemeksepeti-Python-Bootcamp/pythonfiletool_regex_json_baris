@@ -5,8 +5,8 @@ from model.user import User
 from datetime import date
 
 class DatabaseHelper:
-    def __init__(self, db):
-        self.db = db
+    def __init__(self, db_name):
+        self.db_name = db_name
 
     def getTableName(self):
         """Returns the table name"""
@@ -19,9 +19,11 @@ class DatabaseHelper:
         connection = None
         try:
             connection = sqlite3.connect(self.db)
+            print(CustomMessages.DB_CONNECTION_SUCCESS)
+
             return connection
         except:
-            print(CustomMessages.CONNECTION_ERROR)
+            print(CustomMessages.DB_CONNECTION_ERROR)
         
 
     def createTable(self):
@@ -49,7 +51,7 @@ class DatabaseHelper:
             print(CustomMessages.DATABASE_CREATE_SUCCES)
             
         except:
-            print(CustomMessages.CREATE_TABLE_ERROR)
+            print(CustomMessages.DB_CREATE_SUCCES)
         finally:
             connection.close()
 
