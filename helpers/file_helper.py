@@ -17,13 +17,17 @@ class FileHelper:
 
                 for data in allJsonDatas:
                     user = User()
+
                     user.email = data["email"]
                     user.username = data["username"]
                     user.name_surname = data["profile"]["name"]
+
                     user.country = self.getCountry(data["profile"]["location"]["lat"], data["profile"]["location"]["long"])
-                    user.birth_day = self.getBirthDay(data["profile"]["dob"])
-                    user.birth_month = self.getBirthMonth(data["profile"]["dob"])
-                    user.birth_year = self.getBirthYear(data["profile"]["dob"])
+
+                    user.birth_day = self.getBirthInfo(data["profile"]["dob"])["day"]
+                    user.birth_month = self.getBirthInfo(data["profile"]["dob"])["month"]
+                    user.birth_year = self.getBirthInfo(data["profile"]["dob"])["year"]
+
                     user.usernamelk = self.isUserNamelk(user.username, user.name_surname)
                     user.emailuserlk = self.isEmailUserlk(user.email, user.username)
 
@@ -33,17 +37,9 @@ class FileHelper:
 
         return userList
 
-    def getBirthDay(self,date):
-        day = self.regexHelper.parseBirthDay(date)
-        return day
-    
-    def getBirthMonth(self,date):
-        month = self.regexHelper.parseBirthMonth(date)
-        return month
-
-    def getBirthYear(self,date):
-        year = self.regexHelper.parseBirthYear(date)
-        return year
+    def getBirthInfo(self,date):
+        birthDate = self.regexHelper.parseBirthDate(date)
+        return birthDate
 
     def getCountry(self, latitude, longitude):
         country = self.locationHelper.getLocation(latitude, longitude)

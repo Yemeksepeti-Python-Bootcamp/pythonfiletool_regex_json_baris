@@ -17,21 +17,33 @@ class RegexHelper:
         match = pattern.search(username)
 
         return match.group()
-    
-    def parseBirthYear(self, date):
+
+    def parseBirthDate(self, date):
+        birthDate = dict()
         pattern = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})")
         match = pattern.search(date)
 
-        return match.group(1)
-    
-    def parseBirthMonth(self, date):
-        pattern = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})")
-        match = pattern.search(date)
+        birthDate["year"] = match.group(1)
+        birthDate["month"] = match.group(2)
+        birthDate["day"] = match.group(3)
 
-        return match.group(2)
-    
-    def parseBirthDay(self, date):
-        pattern = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})")
-        match = pattern.search(date)
+        return birthDate
 
-        return match.group(3)
+    
+    # def parseBirthYear(self, date):
+    #     pattern = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})")
+    #     match = pattern.search(date)
+
+    #     return match.group(1)
+    
+    # def parseBirthMonth(self, date):
+    #     pattern = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})")
+    #     match = pattern.search(date)
+
+    #     return match.group(2)
+    
+    # def parseBirthDay(self, date):
+    #     pattern = re.compile(r"([0-9]{4})-([0-9]{2})-([0-9]{2})")
+    #     match = pattern.search(date)
+
+    #     return match.group(3)
