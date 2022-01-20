@@ -18,9 +18,8 @@ class DatabaseHelper:
     def createConnection(self):
         connection = None
         try:
-            connection = sqlite3.connect(self.db)
-            print(CustomMessages.DB_CONNECTION_SUCCESS)
-
+            connection = sqlite3.connect(self.db_name)
+            #print(CustomMessages.DB_CONNECTION_SUCCESS)
             return connection
         except:
             print(CustomMessages.DB_CONNECTION_ERROR)
@@ -46,7 +45,6 @@ class DatabaseHelper:
 
             cursor.execute(create_table_script)
             connection.commit()
-            connection.close()
 
             print(CustomMessages.DATABASE_CREATE_SUCCES)
             

@@ -1,10 +1,12 @@
 import json
 from constants.messages import CustomMessages
+from helpers.location_helper import LocationHelper
 from helpers.regex_helper import RegexHelper
 from model.user import User
 
 class FileHelper:
     regexHelper = RegexHelper()
+    locationHelper = LocationHelper()
     
     def scrapJsonFile(self, path):
         userList = list()
@@ -18,7 +20,7 @@ class FileHelper:
                     user.email = data["email"]
                     user.username = data["username"]
                     user.name_surname = data["profile"]["name"]
-                    user.country = data["profile"]["address"].split()[-1] #TODO: make service call
+                    user.country = self.getCountry(data["profile"]["location"]["lat"], data["profile"]["location"]["long"])
                     user.birth_day = self.getBirthDay(data["profile"]["dob"])
                     user.birth_month = self.getBirthMonth(data["profile"]["dob"])
                     user.birth_year = self.getBirthYear(data["profile"]["dob"])
@@ -44,8 +46,8 @@ class FileHelper:
         return year
 
     def getCountry(self, latitude, longitude):
-        #TODO: will be added API service
-        pass
+        country = self.locationHelper.getLocation(latitude, longitude)
+        return country
 
 
     def isEmailuserlk(self, name_surname, username):
