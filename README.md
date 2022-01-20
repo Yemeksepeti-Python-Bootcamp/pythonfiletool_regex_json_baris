@@ -1,4 +1,69 @@
-# pythonfiletool_regex_json
+
+# **Yemeksepeti Python Bootcamp Fourth Homework**
+- This repo is prepared for **the fourth assignment of Yemeksepeti Python Bootcamp**. You can find the details of the assignment under the "**Homework Description**" heading at the bottom of the Readme page.
+
+<br/>
+<br/>
+
+## **Overview**
+
+In short, the homework is about **parsing the json** file containing user information in accordance with **Regular Expression** and certain rules, using the **OOP paradigm** effectively and **saving it to the database**.
+
+<br/>
+<br/>
+
+## **Libraries**
+
+- `sqlite` for database
+- `json` for json file operations
+- `re` for regular expressions
+- `geocoder` for getting location
+- `date` for getting current date time
+
+<br/>
+<br/>
+
+## **Folder Structure**
+
+  
+    ├── constants                       # Constant file that includes all strings etc.
+    |   └── messages.py                 # Includes all messages
+    |                                       
+    ├── helpers                         # Helper file includes all main functionality
+    │   ├── database_helper.py          # Database functions
+    │   ├── file_helper.py              # File operations
+    |   ├── location_helper.py          # Location functions
+    │   └── regex_helper.py             # Regular expression functions
+    |
+    ├── models                          # Models file includes data model
+    │   └── user.py                     # User data model
+    |
+    ├── dataregex.db                    # Database file
+    ├── dataregex.json                  # Json file includes all informations
+    ├── main.py                         # Main 
+    ├── README.md                       # Readme
+
+<br/>
+<br/>
+
+## **UML Class Diagram**
+![UML](https://i.hizliresim.com/ctxhqvo.png)
+
+<br/>
+<br/>
+
+
+## **Example Database Table**
+![DB](https://i.hizliresim.com/cvh60uy.png)
+
+
+<br/>
+<br/>
+<br/>
+
+
+# **Homework Description**
+## pythonfiletool_regex_json
 
 Bu repository patika.dev 153. Yemeksepeti Python Web Development Bootcamp için ödev detaylarını paylaşmak üzere tema olarak hazırlanmıştır. 
 

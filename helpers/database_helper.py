@@ -1,4 +1,3 @@
-from multiprocessing import connection
 import sqlite3
 from constants.messages import CustomMessages
 from model.user import User
