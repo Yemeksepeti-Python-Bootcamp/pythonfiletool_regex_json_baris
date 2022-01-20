@@ -24,14 +24,14 @@ class FileHelper:
                     user.birth_day = self.getBirthDay(data["profile"]["dob"])
                     user.birth_month = self.getBirthMonth(data["profile"]["dob"])
                     user.birth_year = self.getBirthYear(data["profile"]["dob"])
-                    user.usernamelk = self.isUsernamelk(user.username, user.name_surname)
-                    
+                    user.usernamelk = self.isUserNamelk(user.username, user.name_surname)
+                    user.emailuserlk = self.isEmailUserlk(user.email, user.username)
+
                     userList.append(user)
         except:
             print(CustomMessages.JSON_FILE_ERROR)
 
         return userList
-
 
     def getBirthDay(self,date):
         day = self.regexHelper.parseBirthDay(date)
@@ -49,10 +49,13 @@ class FileHelper:
         country = self.locationHelper.getLocation(latitude, longitude)
         return country
 
-    def isEmailuserlk(self, name_surname, username):
-        pass
+    def isEmailUserlk(self, email, username):
+        username = self.regexHelper.parseUsername(username)
+        email = self.regexHelper.parseEmail(email)
+
+        return "1" if username in email else "0"
         
-    def isUsernamelk(self, username, name_surname):
+    def isUserNamelk(self, username, name_surname):
         name_surname = name_surname.lower().replace(" ","")
         name = self.regexHelper.parseUsername(username)
 
