@@ -12,18 +12,16 @@ class DatabaseHelper:
         """Returns the table name"""
         current_date = str(date.today().year)+str(date.today().month)+str(date.today().day)
         table_name = "data_"+current_date
-        
+
         return table_name
 
     def createConnection(self):
         connection = None
         try:
             connection = sqlite3.connect(self.db_name)
-            #print(CustomMessages.DB_CONNECTION_SUCCESS)
             return connection
         except:
             print(CustomMessages.DB_CONNECTION_ERROR)
-        
 
     def createTable(self):
         try:
@@ -45,50 +43,36 @@ class DatabaseHelper:
 
             cursor.execute(create_table_script)
             connection.commit()
-
             print(CustomMessages.DATABASE_CREATE_SUCCES)
-            
         except:
             print(CustomMessages.DB_CREATE_SUCCES)
         finally:
             connection.close()
 
-    
     def insertData(self, user:User):
         try:
             connection = self.createConnection()
             insert_script =  f''' INSERT INTO {self.getTableName()}
-            (username,
-            name_surname,
-            email, 
-            emailuserlk, 
-            usernamelk, 
-            birth_year,
-            birth_month,
-            birth_day,
-            country,
-            active_passive
+            (username, name_surname, email, 
+            emailuserlk, usernamelk, birth_year,
+            birth_month,birth_day,country,active_passive
             ) 
             VALUES(
-                "{user.username}",
-                "{user.name_surname}",
-                "{user.email}",
-                "{user.emailuserlk}",
-                "{user.usernamelk}",
-                "{user.birth_year}",
-                "{user.birth_day}",
-                "{user.birth_month}",
-                "{user.country}",
-                "{user.active_passive}"
+                "{user.username}","{user.name_surname}",
+                "{user.email}","{user.emailuserlk}",
+                "{user.usernamelk}","{user.birth_year}",
+                "{user.birth_day}","{user.birth_month}",
+                "{user.country}", "{user.active_passive}"
                 ) '''
             
             cursor = connection.cursor()
             cursor.execute(insert_script)
             connection.commit()
-            
             print(CustomMessages.DATA_INSERT_SUCCES)
+
         except:
             print(CustomMessages.DATA_INSERT_ERROR)
+            
         finally:
             connection.close()
 

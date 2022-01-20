@@ -1,4 +1,5 @@
 from geopy.geocoders import Nominatim
+from constants.messages import CustomMessages
 
 class LocationHelper:
 
@@ -6,13 +7,11 @@ class LocationHelper:
         try:
             geoLoc = Nominatim(user_agent="GetLoc")
             locname = geoLoc.reverse(f"{latitude}, {longitude}")
-
             country = str(locname.address).split()[-1]
-    
+            
             return country
-
         except:
-            pass
+            print(CustomMessages.LOCATION_ERROR)
 
 
 

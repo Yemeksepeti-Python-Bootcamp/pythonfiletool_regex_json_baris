@@ -25,7 +25,7 @@ class FileHelper:
                     user.birth_month = self.getBirthMonth(data["profile"]["dob"])
                     user.birth_year = self.getBirthYear(data["profile"]["dob"])
                     user.usernamelk = self.isUsernamelk(user.username, user.name_surname)
-
+                    
                     userList.append(user)
         except:
             print(CustomMessages.JSON_FILE_ERROR)
@@ -49,11 +49,9 @@ class FileHelper:
         country = self.locationHelper.getLocation(latitude, longitude)
         return country
 
-
     def isEmailuserlk(self, name_surname, username):
         pass
         
-
     def isUsernamelk(self, username, name_surname):
         name_surname = name_surname.lower().replace(" ","")
         name = self.regexHelper.parseUsername(username)
