@@ -2,15 +2,10 @@
 # **Yemeksepeti Python Bootcamp Fourth Homework**
 - This repo is prepared for **the fourth assignment of Yemeksepeti Python Bootcamp**. You can find the details of the assignment under the "**Homework Description**" heading at the bottom of the Readme page.
 
-<br/>
-<br/>
-
 ## **Overview**
 
 In short, the homework is about **parsing the json** file containing user information in accordance with **Regular Expression** and certain rules, using the **OOP paradigm** effectively and **saving it to the database**.
 
-<br/>
-<br/>
 
 ## **Libraries**
 
