@@ -1,4 +1,8 @@
 class User:
+    """
+    User data class
+    
+    """
     def __init__(
         self,
         email = "None",

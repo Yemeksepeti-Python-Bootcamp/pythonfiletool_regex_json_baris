@@ -4,6 +4,13 @@ from constants.messages import CustomMessages
 class LocationHelper:
 
     def getLocation(self, latitude, longitude):
+        """ This method takes the location information
+            from the geopy package  and returns 
+            the country name as a string
+
+            param: <str> latitude, <str> longitude
+            return: <str> country
+        """
         try:
             geoLoc = Nominatim(user_agent="GetLoc")
             locname = geoLoc.reverse(f"{latitude}, {longitude}")

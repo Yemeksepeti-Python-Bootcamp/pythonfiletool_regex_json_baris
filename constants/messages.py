@@ -1,5 +1,7 @@
 class CustomMessages:
-
+    """This class stores the all constants messages or strings 
+    """
+    
     # Error messages
     DB_CONNECTION_ERROR = "Connection can not created!\n"
     CREATE_TABLE_ERROR = "Table can not created!\n"
