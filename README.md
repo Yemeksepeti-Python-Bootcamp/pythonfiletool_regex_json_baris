@@ -36,7 +36,7 @@ In short, the homework is about **parsing the json** file containing user inform
     ├── dataregex.json                  # Json file includes all informations
     ├── main.py                         # Main 
     ├── README.md                       # Readme
-
+    ├── requirements.txt                # Requirements file  
 
 ## **UML Class Diagram**
 ![UML](https://i.hizliresim.com/ctxhqvo.png)
