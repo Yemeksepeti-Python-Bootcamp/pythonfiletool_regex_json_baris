@@ -43,9 +43,9 @@ class FileHelper:
 
     def isEmailUserlk(self, email, username):
         username = self.regexHelper.parseUsername(username)
-        email = self.regexHelper.parseEmail(email)
+        email_info = self.regexHelper.parseEmail(email)
 
-        return "1" if username in email else "0"
+        return "1" if username in email_info.values() else "0"
         
     def isUserNamelk(self, username, name_surname):
         name_surname = name_surname.lower().split()

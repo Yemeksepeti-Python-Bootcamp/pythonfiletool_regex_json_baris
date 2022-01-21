@@ -4,13 +4,13 @@ class RegexHelper:
 
     def parseEmail(self, email):
         """ Parses email and extract name and surname """
-
+        email_info = dict()
         pattern =  re.compile(r"([a-zA-Z]+)[\.-_]*([a-zA-Z]+)@([a-zA-Z]+)\.([a-zA-Z]+)")
         match = pattern.search(email)
-        name_from_email = match.group(1)
-        surname_from_email = match.group(2)
+        email_info["name"] = match.group(1)
+        email_info["surname"] = match.group(2)
 
-        return [name_from_email, surname_from_email]
+        return email_info
 
     def parseUsername(self, username):
         pattern = re.compile(r"[A-Za-z]+")
