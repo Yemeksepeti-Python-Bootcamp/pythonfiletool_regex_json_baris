@@ -42,7 +42,7 @@ In short, the homework is about **parsing the json** file containing user inform
 ![UML](https://i.hizliresim.com/ctxhqvo.png)
 
 <br/>
-<br/>
+
 
 
 ## **Example Database Table**
